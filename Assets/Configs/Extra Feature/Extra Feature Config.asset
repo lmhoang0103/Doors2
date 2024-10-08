@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c86953c3c894dc8aa964fbed25a5143, type: 3}
+  m_Name: Extra Feature Config
+  m_EditorClassIdentifier: 
+  onlineRewardInterval: 600
+  onlineRewardValue: 1000
+  freeSpinInterval: 14400
+  luckyWheelCoinRewardValues: 3200000064000000c80000002c010000f4010000bc020000e8030000dc050000d0070000
+  chestRoomCoinRewardValues: 320000006400000096000000c8000000fa0000002c0100005e01000090010000c2010000f4010000
+  dailyRewardCoinRewardValues: 64000000c8000000f4010000e8030000d007000088130000
+  nameList: {fileID: 4900000, guid: 4e8bbb8f0db3b8e4e93a0078af22ed78, type: 3}
+  tierConfigs:
+  - {fileID: 11400000, guid: b3b9b9a24a031e940ac496d7a9fdeb8b, type: 2}
+  - {fileID: 11400000, guid: 67ec86e6b9f34aa43aa57a472d27a61e, type: 2}
+  - {fileID: 11400000, guid: 9a634b8175302aa49890fd6c73965aa6, type: 2}
+  - {fileID: 11400000, guid: 704fe5e2bc556c045b1d5bc2dd901890, type: 2}
+  - {fileID: 11400000, guid: aa0ec167a22f1fa4da12438f3383f4b2, type: 2}
+  - {fileID: 11400000, guid: 7de58a73f9dc2ec4fb065c1987590078, type: 2}
+  - {fileID: 11400000, guid: 5c15db7270d061a4299a5d019a4fbdf4, type: 2}
+  tierConfigPath: Assets/Configs/Tiers
+  rankToScoreCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 1000
+      inSlope: 0
+      outSlope: -0.6265664
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 400
+      value: 750
+      inSlope: -0.6265664
+      outSlope: -0.35714287
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1100
+      value: 500
+      inSlope: -0.35714287
+      outSlope: -0.16666667
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 2300
+      value: 300
+      inSlope: -0.16666667
+      outSlope: -0.1
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 4000
+      value: 130
+      inSlope: -0.1
+      outSlope: -0.03
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 6000
+      value: 70
+      inSlope: -0.03
+      outSlope: -0.02
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 7000
+      value: 50
+      inSlope: -0.02
+      outSlope: -0.016666668
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 10000
+      value: 0
+      inSlope: -0.016666668
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  a: -0.016666668
+  b: 166.66667
+  minDecreaseRankOfflineTime: 10800
+  decreaseRankTimeInterval: 3600
+  decreaseRankScoreOffset: 2

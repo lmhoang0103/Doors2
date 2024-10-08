@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74fc61e1b37558147b2543cc59904ffd, type: 3}
+  m_Name: _Straight Room List SO
+  m_EditorClassIdentifier: 
+  roomSOList:
+  - {fileID: 11400000, guid: 3960ee4fcff26374f8d75b7ff390600e, type: 2}
+  - {fileID: 11400000, guid: 2369a17d0ea2b824f8f2360419e290c6, type: 2}
+  - {fileID: 11400000, guid: 82c81df12f160214b8e9c08c567fa729, type: 2}
+  - {fileID: 11400000, guid: e477a63507c5aef449fec35ec88c31b6, type: 2}
+  - {fileID: 11400000, guid: 8e306a9009dedf04da2940ed442a3f75, type: 2}
+  - {fileID: 11400000, guid: 0a5456e8db2c07343814dd515460eb11, type: 2}
+  - {fileID: 11400000, guid: ddebb1ecdc6863a44b7eb6cd46fcb64f, type: 2}
+  - {fileID: 11400000, guid: 8b53953062a6f924db9ae924b457d76f, type: 2}
+  - {fileID: 11400000, guid: ad56a6ff15afd00409bd3caec101254c, type: 2}
+  - {fileID: 11400000, guid: 788ddca3422ba4646a32f79dbd6b6d06, type: 2}
+  - {fileID: 11400000, guid: 30a5e2eb4adbb644b85cb495f6d7b93c, type: 2}
+  - {fileID: 11400000, guid: 3a329ecc36a1f014ba22bbc3d649d1ae, type: 2}
+  - {fileID: 11400000, guid: 97441a6480d9a4f41b43e0167045e28b, type: 2}
+  - {fileID: 11400000, guid: 82759d6dfad0d6c44a56cc96ba1ccb56, type: 2}
+  - {fileID: 11400000, guid: a9ac595d1588ea04caf6c35144077ebf, type: 2}
+  - {fileID: 11400000, guid: 37c390153fbca244ea12bbb468f7d9a4, type: 2}
+  - {fileID: 11400000, guid: 2fd8af69f90082c46a819b4a0e736ad1, type: 2}
+  - {fileID: 11400000, guid: 5abfe8fa505d6c9438ea95b1d7e1a63d, type: 2}
+  - {fileID: 11400000, guid: 98736bdb20a0f7d4296d4b688fa09093, type: 2}
+  - {fileID: 11400000, guid: 1bd16047cf7c52842812309f9a146af1, type: 2}
+  - {fileID: 11400000, guid: 2e2fc88720dced14fb97b68219872309, type: 2}
+  - {fileID: 11400000, guid: a92a395193a8a9e4facd9d3d7be79abc, type: 2}
+  roomDirection: 0

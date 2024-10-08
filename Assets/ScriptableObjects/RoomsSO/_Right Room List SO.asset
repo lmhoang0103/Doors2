@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74fc61e1b37558147b2543cc59904ffd, type: 3}
+  m_Name: _Right Room List SO
+  m_EditorClassIdentifier: 
+  roomSOList:
+  - {fileID: 11400000, guid: f9a3b47464d9c934aacb287beb348857, type: 2}
+  - {fileID: 11400000, guid: 381bf61de7141224581ee90d55e4d677, type: 2}
+  - {fileID: 11400000, guid: 49c091c3ed946c6498c1f66652a0a2c6, type: 2}
+  - {fileID: 11400000, guid: 267368e358bb6af4a8af62997fef8fe7, type: 2}
+  - {fileID: 11400000, guid: f4710d7e27f64f64981224bb8ab2813d, type: 2}
+  - {fileID: 11400000, guid: aad632c790967f74abaa09316d042808, type: 2}
+  roomDirection: 1

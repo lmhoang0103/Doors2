@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd1ec6c8c3a3264c8a6cd9c6e579ff2, type: 3}
+  m_Name: UiConfig
+  m_EditorClassIdentifier: 
+  panelInstances:
+  - {fileID: 4376277840728500120, guid: d11b98902fec28e4d88e412e8d64ae9c, type: 3}
+  - {fileID: 3954823013641808223, guid: b7a0abbf25bf52042be96cd0ea387317, type: 3}
+  - {fileID: 92526893789430412, guid: 80d7c7ed0a89fef4b9da556d00e36f0a, type: 3}
+  - {fileID: 2075658024611926200, guid: 08ee30b0b84031f4d82bf5c6b3522c82, type: 3}
+  - {fileID: 5629657266680520599, guid: db5eece97b76f3042a52241a8c43d11e, type: 3}
+  - {fileID: 6766678100986262009, guid: 9046e4ec30b022d498360ca8d132b04b, type: 3}
+  - {fileID: 1818727273283026048, guid: 0a6119594d4833c42abb48601f6ef5a3, type: 3}
+  - {fileID: 6866867462230735036, guid: bc6adff3451c2c5498c363d80e70efe8, type: 3}
+  - {fileID: 5904893346855732186, guid: 68c7b7afd28f8a64c9d14223998cf015, type: 3}
+  - {fileID: 1024013552345526447, guid: 2805472984b879e41babc530f569eec3, type: 3}
+  - {fileID: 8112847316134672569, guid: bb4589a4d9a0a37459ade982e4f0c179, type: 3}
+  - {fileID: 3133075416376919943, guid: b492f3694296cb849b82843b89cd15c3, type: 3}
+  - {fileID: 7893104956621670071, guid: 3ad8e4b714d56ad45a41f09cd8863657, type: 3}
+  - {fileID: 1094941513991578393, guid: a2a6a6d5f0a0e5a4cbd82aafc75ed862, type: 3}
+  - {fileID: 2485260458967520913, guid: 09da70b422fdbb9499953fd8da22b1e2, type: 3}
+  - {fileID: 5280219857445585481, guid: b05f9e6f0bb920f459b58a83b86b4db8, type: 3}
+  - {fileID: 223020296290832533, guid: 58bc9348b36b23845a04396a2c6f0181, type: 3}
+  - {fileID: 7817573483265218733, guid: 0292f4ec69d380143b77dcaaaa269a92, type: 3}
+  - {fileID: 4206680505263662064, guid: 3cc8bc07a50977a4689b2c0c5a3d5751, type: 3}
+  prefabScreen: {fileID: 4707995532972556235, guid: c47dce81ad4845d47b1516bde2af87a3,
+    type: 3}
+  prefabPopup: {fileID: 1150493129258228202, guid: 515b3bb974d3ee943a509da33eb22b83,
+    type: 3}
+  prefabButton: {fileID: 4818939933820741150, guid: 0eefcbadbb949724ab929b2c02f2992a,
+    type: 3}
+  path: Assets/Prefabs/UI/Screen And Popup
+  demoPath: Assets/UI Anim Demo/Prefabs/Panels
