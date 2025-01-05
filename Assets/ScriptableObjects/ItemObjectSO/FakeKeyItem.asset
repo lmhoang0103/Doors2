@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: FakeKeyItem
   m_EditorClassIdentifier: 
   prefab: {fileID: 3461595429226646407, guid: 39cf1da05a55b4d47b348d87353a793a, type: 3}
-  sprite: {fileID: 21300000, guid: 72139d64e4c79454e8eae773bb2968b1, type: 3}
+  sprite: {fileID: 21300000, guid: 0a1213d1bc17c440b8427a8d0c21a34c, type: 3}
   objectName: Fake Key
-  itemType: 7
+  itemType: 13
+  isStackable: 0

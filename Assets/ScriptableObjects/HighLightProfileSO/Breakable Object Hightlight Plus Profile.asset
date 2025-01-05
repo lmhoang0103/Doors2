@@ -25,12 +25,12 @@ MonoBehaviour:
   fadeInDuration: 0
   fadeOutDuration: 0
   constantWidth: 1
-  overlay: 0
-  overlayColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  overlayAnimationSpeed: 1
-  overlayMinIntensity: 0.5
+  overlay: 0.801
+  overlayColor: {r: 1, g: 0.011146846, b: 0, a: 0}
+  overlayAnimationSpeed: 0
+  overlayMinIntensity: 1
   overlayBlending: 1
-  overlayTexture: {fileID: 0}
+  overlayTexture: {fileID: 2800000, guid: 566aef0515ce279408416edde5c76cea, type: 3}
   overlayTextureScale: 1
   outline: 0
   outlineColor: {r: 0, g: 0, b: 0, a: 1}
@@ -67,12 +67,12 @@ MonoBehaviour:
     alpha: 0.4
     color: {r: 0.64, g: 1, b: 0, a: 1}
   glowIgnoreMask: 0
-  innerGlow: 0.2
-  innerGlowWidth: 1
+  innerGlow: 0
+  innerGlowWidth: 0
   innerGlowColor: {r: 1, g: 0, b: 0, a: 1}
   innerGlowVisibility: 0
   targetFX: 0
-  targetFXTexture: {fileID: 0}
+  targetFXTexture: {fileID: 2800000, guid: 1de3c566a6c8c405b9f6f453137273ec, type: 3}
   targetFXColor: {r: 1, g: 1, b: 1, a: 1}
   targetFXRotationSpeed: 50
   targetFXInitialScale: 4

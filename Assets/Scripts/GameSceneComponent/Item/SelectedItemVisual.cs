@@ -1,41 +1,37 @@
 using HighlightPlus;
 using UnityEngine;
 
-public class SelectedItemVisual : MonoBehaviour
-{
-    [SerializeField] private HighlightEffect highLightEffect;
-    [SerializeField] private ItemObject itemObject;
+public class SelectedItemVisual : MonoBehaviour {
+    private HighlightEffect highLightEffect;
+    private ItemObject itemObject;
 
-    private void Awake()
-    {
+    private void Awake() {
+        highLightEffect = GetComponent<HighlightEffect>();
+        itemObject = GetComponent<ItemObject>();
+    }
+
+    private void Start() {
         Hide();
         Player.Instance.OnSelectedInteractableObjectChanged += Player_OnSelectedInteractableObjectChanged;
     }
-    private void Start()
-    {
-        Hide();
-    }
 
-    private void Player_OnSelectedInteractableObjectChanged(object sender, Player.OnSelectedInteractableObjectChangedEventArgs e)
-    {
-        if (e.interactable == itemObject.GetItemObjectParent())
-        {
-            //Debug.Log(e.interactable);
+    private void Player_OnSelectedInteractableObjectChanged(object sender, Player.OnSelectedInteractableObjectChangedEventArgs e) {
+        if (e.interactable == itemObject.GetItemObjectParent()) {
             Show();
-
-        } else
-        {
+        } else {
             Hide();
         }
     }
 
-    private void Show()
-    {
-        highLightEffect.SetHighlighted(true);
+    private void Show() {
+        if (highLightEffect != null) {
+            highLightEffect.SetHighlighted(true);
+        }
     }
 
-    private void Hide()
-    {
-        highLightEffect.SetHighlighted(false);
+    private void Hide() {
+        if (highLightEffect != null) {
+            highLightEffect.SetHighlighted(false);
+        }
     }
 }

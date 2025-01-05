@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GoldenKeyItem
   m_EditorClassIdentifier: 
   prefab: {fileID: 3461595429226646407, guid: fafeb50b9366d584f8b6c7dbee5e8b5a, type: 3}
-  sprite: {fileID: 21300000, guid: 77f2256483d35a848b287da7d87a2fbe, type: 3}
+  sprite: {fileID: 21300000, guid: 5b4881956b39943428dcf853040c3eb9, type: 3}
   objectName: Golden Key
   itemType: 1
+  isStackable: 1

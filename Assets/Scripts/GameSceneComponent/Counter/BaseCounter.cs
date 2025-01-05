@@ -1,47 +1,43 @@
 using UnityEngine;
 
-public class BaseCounter : HCMonoBehaviour, IItemObjectParent, IInteractable
-{
+public class BaseCounter : MonoBehaviour, IItemObjectParent, IInteractable {
+    private const string ITEM_HOLD_POINT_NAME = "ItemHoldPoint";
 
-    [SerializeField] private Transform counterTopPoint;
+    private Transform itemHoldPoint;
 
     private ItemObject itemObject;
 
-
-    public Transform GetItemObjectFollowTransform()
-    {
-        return counterTopPoint;
+    protected virtual void Awake() {
+        itemHoldPoint = transform.Find(ITEM_HOLD_POINT_NAME);
     }
 
-    public void SetItemObject(ItemObject itemObject)
-    {
+
+    public virtual void Interact(Player player) {
+        Debug.LogError("Not Implement Interact of Counter");
+
+    }
+
+    public virtual bool IsInteractable(Player player) {
+        return true;
+    }
+    public Transform GetItemObjectFollowTransform() {
+        return itemHoldPoint;
+    }
+
+    public void SetItemObject(ItemObject itemObject) {
         this.itemObject = itemObject;
     }
 
-    public ItemObject GetItemObject()
-    {
+    public ItemObject GetItemObject() {
         return itemObject;
     }
 
-    public void ClearItemObject()
-    {
+    public void ClearItemObject() {
         itemObject = null;
     }
 
-    public bool HasItemObject()
-    {
+    public bool HasItemObject() {
         return itemObject != null;
     }
 
-    public virtual void Interact(Player player)
-    {
-        Debug.LogError("Not Implement Interact of Counter");
-
-
-    }
-
-    public virtual bool IsInteractable(Player player)
-    {
-        return true;
-    }
 }

@@ -1,40 +1,18 @@
-﻿public enum SceneIndex
-{
+﻿public enum SceneIndex {
     None = -1,
     Splash = 0,
     Gameplay
 }
 
-public enum PanelType
-{
-    None,
-    Screen,
-    Popup,
-    Notification,
-    Loading
-}
 
-public enum TypeSound
-{
-    None = -1,
-    Button = 0,
-    OpenPopup = 1,
-    ClosePopup = 2,
-}
 
-public enum Pool
-{
+public enum Pool {
     None
 }
 
-public enum RewardType
-{
-    Coin,
-    Gift
-}
 
-public enum EasingType
-{
+
+public enum EasingType {
     Linear = 1,
     InSine,
     OutSine,
@@ -73,42 +51,40 @@ public enum EasingType
     Custom
 }
 
-public enum ItemType
-{
+public enum ItemType {
     Coin,
     GoldenKey,
     NormalKey,
     FlashLight,
-    Book,
-    Painting,
+    Book_Circle,
+    Book_Square,
+    Book_Cross,
+    Book_Triangle,
+    Painting_Circle,
+    Painting_Horizontal,
+    Painting_Square,
+    Painting_Vertical,
     Hammer,
     FakeKey,
-    Food
+    Food,
+    HealPotion,
+    SpeedUp,
 }
 
-public enum PaintingFrameType
-{
-    Square,
-    VerticalRectangle,
-    HorizontalRectangle,
-    Circle,
-    Triangle,
-    NoShape
-}
 
-public enum BookCoverType
-{
-    Circle,
-    Cross,
-    Square,
-    Triangle,
-    NoSymbol
-}
-
-public enum RoomDirection
-{
+public enum RoomDirection {
     Straight = 0,
     Right = 1,
     Back = 2,
     Left = 3,
 }
+
+public enum SkinId {
+    Goblin,
+    KnightFemale,
+    KnightMale,
+    Golem,
+    KnightSkeleton,
+    SoldierSkeleton
+}
+

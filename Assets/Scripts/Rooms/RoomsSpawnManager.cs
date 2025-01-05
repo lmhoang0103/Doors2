@@ -1,11 +1,13 @@
 using Sirenix.OdinInspector;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class RoomsSpawnManager : SingletonDestroy<RoomsSpawnManager>
-{
+public class RoomsSpawnManager : SingletonDestroy<RoomsSpawnManager> {
     private const string NEW_ROOM_SPAWN_POINT = "NewRoomSpawnPoint";
+
+    public event EventHandler OnRoomSpawn;
 
     [SerializeField] private Transform currentRoomsTransform;
     [SerializeField] private Room startRoom;
@@ -14,19 +16,21 @@ public class RoomsSpawnManager : SingletonDestroy<RoomsSpawnManager>
     [SerializeField] private RoomListSO rightRoomListSO;
     [SerializeField] private int maxRoomsExist = 3;
 
-    private Queue<Room> currentRoomsQueue = new Queue<Room>();
+    private Queue<Room> activeRoomsQueue = new Queue<Room>();
     private Vector3 nextRoomSpawnPoint;
-    private int spawnedRoomCount;
+
+    private int roomCount;
     private List<RoomSO> allRoomList = new List<RoomSO>();
     private List<RoomSO> leftRoomList = new List<RoomSO>();
     private List<RoomSO> rightRoomList = new List<RoomSO>();
     private RoomDirection currentRoomDirection;
-    private void Start()
-    {
-        spawnedRoomCount = 1;
+
+
+    private void Start() {
+        roomCount = 1;
         nextRoomSpawnPoint = startRoom.GetNewRoomSpawnPosition();
         currentRoomDirection = RoomDirection.Straight;
-        currentRoomsQueue.Enqueue(startRoom);
+        activeRoomsQueue.Enqueue(startRoom);
 
         allRoomList = straightRoomListSO.roomSOList.Concat(leftRoomListSO.roomSOList).Concat(rightRoomListSO.roomSOList).ToList();
         leftRoomList = straightRoomListSO.roomSOList.Concat(leftRoomListSO.roomSOList).ToList();
@@ -36,16 +40,12 @@ public class RoomsSpawnManager : SingletonDestroy<RoomsSpawnManager>
     }
 
     [Button]
-    public void SpawnRoom()
-    {
-        int randomIndex;
-        RoomDirection roomDir;
-        Room spawnedRoom;
+    public void SpawnRoom() {
         List<RoomSO> choosenRoomSOList = new List<RoomSO>();
         Vector3 spawnRoomEulerAngles = new Vector3();
 
-        switch (currentRoomDirection)
-        {
+        //Choose What type of rooms to spawn
+        switch (currentRoomDirection) {
             case RoomDirection.Straight:
 
                 choosenRoomSOList = allRoomList;
@@ -66,34 +66,36 @@ public class RoomsSpawnManager : SingletonDestroy<RoomsSpawnManager>
         }
 
         //Choose a random room to spawn
-        randomIndex = Random.Range(0, choosenRoomSOList.Count);
-        spawnedRoom = Room.SpawnRoomSO(choosenRoomSOList[randomIndex], currentRoomsTransform, nextRoomSpawnPoint, spawnRoomEulerAngles);
-        currentRoomsQueue.Enqueue(spawnedRoom);
-        spawnedRoomCount++;
+        int randomIndex = UnityEngine.Random.Range(0, choosenRoomSOList.Count);
+        roomCount++;
+        Room spawnedRoom = Room.SpawnRoomSO(choosenRoomSOList[randomIndex], currentRoomsTransform, nextRoomSpawnPoint, spawnRoomEulerAngles, roomCount);
+        activeRoomsQueue.Enqueue(spawnedRoom);
+        //Cache neccessary info
         nextRoomSpawnPoint = spawnedRoom.GetNewRoomSpawnPosition();
-        roomDir = GetRoomDirection(choosenRoomSOList[randomIndex]);
+        RoomDirection roomDir = spawnedRoom.GetRoomDirection();
         currentRoomDirection = (RoomDirection)(((int)currentRoomDirection + (int)roomDir) % 4);
-        if (currentRoomsQueue.Count > maxRoomsExist)
-        {
-            DestroyRoom();
+        if (activeRoomsQueue.Count > maxRoomsExist) {
+            DestroyOldestRoom();
         }
 
+        OnRoomSpawn?.Invoke(this, EventArgs.Empty);
+
 
     }
 
-    private void DestroyRoom()
-    {
-        Room oldestRoom = currentRoomsQueue.Dequeue();
+    private void DestroyOldestRoom() {
+        Room oldestRoom = activeRoomsQueue.Dequeue();
         oldestRoom.DestroySelf();
+
+        if (activeRoomsQueue.Count > 0) {
+            Room nextRoom = activeRoomsQueue.Peek(); // Peek at the next room
+            nextRoom.ShowBlockedWall(); // Block off the exit
+        }
     }
 
-    private RoomDirection GetRoomDirection(RoomSO roomSO)
-    {
-        return roomSO.roomDirection;
-    }
 
-    public int GetSpawnedRoomCount()
-    {
-        return spawnedRoomCount;
+
+    public int GetSpawnedRoomCount() {
+        return roomCount;
     }
 }

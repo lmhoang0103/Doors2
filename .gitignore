@@ -62,3 +62,7 @@ crashlytics-build.properties
 .idea/
 Assets/StreamingAssets/build_info
 UserSettings
+/.plastic
+/Assets
+/ignore.conf
+/ProjectSettings

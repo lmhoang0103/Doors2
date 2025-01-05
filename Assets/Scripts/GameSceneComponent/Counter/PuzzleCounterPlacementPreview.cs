@@ -1,96 +1,81 @@
+using HighlightPlus;
 using UnityEngine;
 
-public class PuzzleCounterPlacementPreview : MonoBehaviour, IItemObjectParent
-{
-    [SerializeField] private Transform counterTopPoint;
-    [SerializeField] private BasePuzzleCounter basePuzzleCounter;
+public class PuzzleCounterPlacementPreview : MonoBehaviour, IItemObjectParent {
+    private HighlightEffect previewHighlightEffect;
 
     private ItemObject itemObject;
-    private IInteractable interactable;
-    private IItemObjectParent itemObjectParent;
-    private void Start()
-    {
-        if (!basePuzzleCounter.TryGetComponent(out interactable))
-        {
-            Debug.LogError($"GameObject {basePuzzleCounter.name} does not have a component that implements the IInteractable interface.");
-        }
-        if (!basePuzzleCounter.TryGetComponent(out itemObjectParent))
-        {
-            Debug.LogError($"GameObject {basePuzzleCounter.name} does not have a component that implements the IInteractable interface.");
-        }
+
+    [SerializeField] private PuzzleCounter puzzleCounter;
+
+
+    private void Awake() {
+        previewHighlightEffect = GetComponent<HighlightEffect>();
+        puzzleCounter = GetComponentInParent<PuzzleCounter>();
+    }
+    private void Start() {
+
         Player.Instance.OnSelectedInteractableObjectChanged += Player_OnSelectedInteractableObjectChanged;
-        DestroyItemPlacementPreview();
+        Hide();
 
     }
 
-    private void Player_OnSelectedInteractableObjectChanged(object sender, Player.OnSelectedInteractableObjectChangedEventArgs e)
-    {
-
-        if (e.interactable == interactable && CanPlaceItemPreview())
-        {
-            SpawnItemPlacementPreview();
-        } else
-        {
-            DestroyItemPlacementPreview();
+    private void Player_OnSelectedInteractableObjectChanged(object sender, Player.OnSelectedInteractableObjectChangedEventArgs e) {
+        if (e.interactable == (IInteractable)puzzleCounter && Player.Instance.HasItemObject() && !puzzleCounter.HasItemObject()) {
+            Show();
+        } else {
+            Hide();
         }
 
-
-
     }
 
-    private bool CanPlaceItemPreview()
-    {
-        if (Player.Instance.HasItemObject())
-        {
-            if (!itemObjectParent.HasItemObject())
-            {
-                return true;
+
+
+    private void Show() {
+        if (Player.Instance.HasItemObject()) {
+            ItemObject.SpawnItemObjectSO(Player.Instance.GetItemObject().GetItemObjectSO(), this);
+            if (previewHighlightEffect != null) {
+                previewHighlightEffect.SetHighlighted(true);
             }
+            ResetGameOBject();
         }
 
-        return false;
-
     }
-    private void SpawnItemPlacementPreview()
-    {
-        if (!this.HasItemObject())
-        {
-            ItemObject itemObject = ItemObject.SpawnItemObjectSO(Player.Instance.GetItemObject().GetItemObjectSO(), this);
-            itemObject.RaiseOnEnableItemPlacementPreviewEvent();
 
+    private void Hide() {
+        if (this.HasItemObject()) {
+            this.GetItemObject().DestroySelf();
         }
-    }
-    private void DestroyItemPlacementPreview()
-    {
-
-        if (this.HasItemObject())
-        {
-            itemObject.DestroySelf();
+        if (previewHighlightEffect != null) {
+            previewHighlightEffect.SetHighlighted(false);
         }
+
+
     }
 
-    public Transform GetItemObjectFollowTransform()
-    {
-        return counterTopPoint;
+    public Transform GetItemObjectFollowTransform() {
+        return this.transform;
     }
 
-    public void SetItemObject(ItemObject itemObject)
-    {
+    public void SetItemObject(ItemObject itemObject) {
         this.itemObject = itemObject;
     }
 
-    public ItemObject GetItemObject()
-    {
+    public ItemObject GetItemObject() {
         return itemObject;
     }
 
-    public void ClearItemObject()
-    {
+    public void ClearItemObject() {
         itemObject = null;
     }
 
-    public bool HasItemObject()
-    {
+    public bool HasItemObject() {
         return itemObject != null;
     }
+
+    private void ResetGameOBject() {
+        gameObject.SetActive(false);
+        gameObject.SetActive(true);
+    }
+
 }

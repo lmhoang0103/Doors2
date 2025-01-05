@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: NormalKeyItem
   m_EditorClassIdentifier: 
   prefab: {fileID: 3461595429226646407, guid: 4f4920d1a23955d41853fcb930a0b93c, type: 3}
-  sprite: {fileID: 21300000, guid: 72139d64e4c79454e8eae773bb2968b1, type: 3}
+  sprite: {fileID: 21300000, guid: 481b392644173441e8b17f6aca1c391c, type: 3}
   objectName: Normal Key
   itemType: 2
+  isStackable: 0

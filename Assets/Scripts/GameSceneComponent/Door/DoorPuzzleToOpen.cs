@@ -2,30 +2,30 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorPuzzleToOpen : BaseDoor, ITriggerableByPlayer, IHintable
-{
+public class DoorPuzzleToOpen : BaseDoor, ITriggerableByPlayer, IHintable {
     public event EventHandler OnHintShow;
     public event EventHandler OnHintHidden;
 
-    [SerializeField] private List<BasePuzzleCounter> puzzleCountersList;
+    [SerializeField] private List<PuzzleCounter> puzzleCountersList;
     private int correctPuzzleItemsCount;
 
+    protected override void Awake() {
+        base.Awake();
+    }
 
-    private void Start()
-    {
+    private void Start() {
         correctPuzzleItemsCount = 0;
-        foreach (BasePuzzleCounter puzzleCounter in puzzleCountersList)
-        {
-            puzzleCounter.OnPuzzleItemChecked += PuzzleCounter_OnPuzzleItemChecked;
+
+
+        foreach (PuzzleCounter puzzleCounter in puzzleCountersList) {
+            puzzleCounter.OnCorrectPuzzleItem += PuzzleCounter_OnCorrectPuzzleItem;
         }
     }
 
-    private void PuzzleCounter_OnPuzzleItemChecked(object sender, EventArgs e)
-    {
+    private void PuzzleCounter_OnCorrectPuzzleItem(object sender, EventArgs e) {
         correctPuzzleItemsCount++;
         // Check if all puzzles are correctly solved
-        if (correctPuzzleItemsCount == puzzleCountersList.Count)
-        {
+        if (correctPuzzleItemsCount == puzzleCountersList.Count) {
             OpenDoor();
             OnHintHidden?.Invoke(this, EventArgs.Empty);
 
@@ -33,8 +33,7 @@ public class DoorPuzzleToOpen : BaseDoor, ITriggerableByPlayer, IHintable
     }
 
 
-    public void Trigger(Player player)
-    {
+    public void Trigger(Player player) {
         OnHintShow?.Invoke(this, EventArgs.Empty);
     }
 }

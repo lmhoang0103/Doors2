@@ -1,19 +1,14 @@
 using System;
 using UnityEngine;
 
-public class ItemObject : MonoBehaviour
-{
-    public event EventHandler OnEnableItemPlacementPreview;
-
+public class ItemObject : MonoBehaviour {
     [SerializeField] private ItemObjectSO itemObjectSO;
 
     private IItemObjectParent itemObjectParent;
 
-    public ItemObjectSO GetItemObjectSO()
-    { return itemObjectSO; }
+    public ItemObjectSO GetItemObjectSO() { return itemObjectSO; }
 
-    public void SetItemObjectParent(IItemObjectParent itemObjectParent)
-    {
+    public void SetItemObjectParent(IItemObjectParent itemObjectParent) {
         this.itemObjectParent?.ClearItemObject();
         this.itemObjectParent = itemObjectParent;
 
@@ -26,21 +21,13 @@ public class ItemObject : MonoBehaviour
 
     public IItemObjectParent GetItemObjectParent() { return itemObjectParent; }
 
-    public void DestroySelf()
-    {
+    public void DestroySelf() {
         itemObjectParent.ClearItemObject();
         Destroy(gameObject);
     }
 
 
-    public void RaiseOnEnableItemPlacementPreviewEvent()
-    {
-        OnEnableItemPlacementPreview?.Invoke(this, EventArgs.Empty);
-
-    }
-
-    public static ItemObject SpawnItemObjectSO(ItemObjectSO itemObjectSO, IItemObjectParent itemObjectParent)
-    {
+    public static ItemObject SpawnItemObjectSO(ItemObjectSO itemObjectSO, IItemObjectParent itemObjectParent) {
         Transform itemObjectTransform = Instantiate(itemObjectSO.prefab);
         ItemObject itemObject = itemObjectTransform.GetComponent<ItemObject>();
         itemObject.SetItemObjectParent(itemObjectParent);
@@ -49,8 +36,8 @@ public class ItemObject : MonoBehaviour
     }
 
 
-    public static void SwapItemObject(IItemObjectParent itemObjectParent1, IItemObjectParent itemObjectParent2)
-    {
+
+    public static void SwapItemObject(IItemObjectParent itemObjectParent1, IItemObjectParent itemObjectParent2) {
         // Retrieve the ItemObject components from the IItemObjectParent objects
         ItemObject itemObject1 = itemObjectParent1.GetItemObject();
         ItemObject itemObject2 = itemObjectParent2.GetItemObject();

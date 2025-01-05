@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: FlashLightItem
   m_EditorClassIdentifier: 
   prefab: {fileID: 7261662827874177022, guid: cf107f0858b10db4aaf07485f2ea32c9, type: 3}
-  sprite: {fileID: 21300000, guid: 8a5cec58db90e6a4191c0c1a1c4b3f13, type: 3}
+  sprite: {fileID: 21300000, guid: e1683a1acccb446889b2eb95ce0cbaae, type: 3}
   objectName: Flash Light
   itemType: 3
+  isStackable: 0

@@ -1,38 +1,39 @@
 using UnityEngine;
 
-public class ClearCounter : BaseCounter
-{
+public class ClearCounter : BaseCounter {
     private const string UNINTERACTABLE_LAYER_NAME = "Default";
 
     [SerializeField] private ItemObjectSO itemObjectSOToSpawn;
+    [SerializeField] private LootTableSO lootTableSO;
 
-
-
-    private void Start()
-    {
-        if (itemObjectSOToSpawn != null)
-        {
+    protected override void Awake() {
+        base.Awake();
+        lootTableSO = DoorGameManager.Instance.GetLootTableSO();
+        if (itemObjectSOToSpawn != null) {
             ItemObject.SpawnItemObjectSO(itemObjectSOToSpawn, this);
-        } else
-        {
-            gameObject.layer = LayerMask.NameToLayer(UNINTERACTABLE_LAYER_NAME);
+        } else {
+            itemObjectSOToSpawn = lootTableSO.GetRandomItem();
+            if (itemObjectSOToSpawn != null) {
+                ItemObject.SpawnItemObjectSO(itemObjectSOToSpawn, this);
+            }
         }
+        ResetGameOBject();
     }
 
-    public override void Interact(Player player)
-    {
-        if (player.HasItemObject())
-        {
-            //Player is carrying something
-            ItemObject.SwapItemObject(player, this);
+    public override bool IsInteractable(Player player) {
+        return HasItemObject();
+    }
+    public override void Interact(Player player) {
+        //Put this in inventory
+        InventoryManager.Instance.AddItemToInventory(GetItemObject().GetItemObjectSO(), 1);
+        //Destroy the item here
+        GetItemObject().DestroySelf();
+        SoundManager.Instance.PlayItemPickupSound(this.transform.position);
 
-        } else
-        {
-            //Player is not carrying anything
-            GetItemObject().SetItemObjectParent(player);
-            gameObject.layer = LayerMask.NameToLayer(UNINTERACTABLE_LAYER_NAME);
-        }
-
+    }
+    private void ResetGameOBject() {
+        gameObject.SetActive(false);
+        gameObject.SetActive(true);
     }
 
 }

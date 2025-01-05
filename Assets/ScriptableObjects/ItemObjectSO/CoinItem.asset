@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: CoinItem
   m_EditorClassIdentifier: 
   prefab: {fileID: 3461595429226646407, guid: 340934c48526fb94f8e6e857b11a9a48, type: 3}
-  sprite: {fileID: 21300000, guid: 6ffd11c0f29fe644e876cf2f8d8ded99, type: 3}
+  sprite: {fileID: 21300000, guid: de5fda9bcd205472eb30fbefc9da6e15, type: 3}
   objectName: Coin
+  itemType: 0
+  isStackable: 1

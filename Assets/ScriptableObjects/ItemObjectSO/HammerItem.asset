@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: HammerItem
   m_EditorClassIdentifier: 
   prefab: {fileID: 8206656757832876921, guid: bae436cb72fe0964f8193d1d519c8d34, type: 3}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: b9e07b84080f64b7c9f7459dc208204b, type: 3}
   objectName: Hammer
-  itemType: 6
+  itemType: 12
+  isStackable: 1

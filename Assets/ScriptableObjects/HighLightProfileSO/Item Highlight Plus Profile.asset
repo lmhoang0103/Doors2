@@ -32,7 +32,7 @@ MonoBehaviour:
   overlayBlending: 1
   overlayTexture: {fileID: 0}
   overlayTextureScale: 1
-  outline: 0.624
+  outline: 0.605
   outlineColor: {r: 1, g: 1, b: 1, a: 0.25490198}
   outlineWidth: 0.45
   outlineQuality: 3
